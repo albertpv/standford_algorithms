@@ -45,31 +45,32 @@ def sort_and_count(a):
 
     return d, x+y+z
 
+def run_test_case(a,expectedInv):
+    print "\nTesting using", a , " expected inversions on array: ", expectedInv
+    numInv = sort_and_count(a)[1]
+    assert numInv == expectedInv , "KO result is %d instead of %d " %(numInv,expectedInv)
+    print("OK, result is %d as expected" %(expectedInv) )
+    return 0;
+
 #Test Cases
+print "Running tests"
+t0 = [1,2,3,4,5,9,6]
+run_test_case(t0,1)
+
 t1 = [1,3,5,2,4,6]
-print "Testing using", t1
-print "Expecting:", 3
-print "Returned:", sort_and_count(t1)[1]
+run_test_case(t1,3)
 
 t2 = [1,5,3,2,4]
-print "\nTesting using", t2
-print "Expecting:", 4
-print "Returned:", sort_and_count(t2)[1]
+run_test_case(t2,4)
 
 t3 = [5,4,3,2,1]
-print "\nTesting using", t3
-print "Expecting:", 10
-print "Returned:", sort_and_count(t3)[1]
+run_test_case(t3,10)
 
 t4 = [1,6,3,2,4,5]
-print "\nTesting using", t4
-print "Expecting:", 5
-print "Returned:", sort_and_count(t4)[1]
+run_test_case(t4,5)
 
 t5 = [1,2,3,4,5,6]
-print "\nTesting using", t5
-print "Expecting:", 0
-print "Returned:", sort_and_count(t5)[1]
+run_test_case(t5,0)
 
 print "\n\nFinal run against IntergerArray.txt"
 with open('IntegerArray.txt', 'r') as f:
